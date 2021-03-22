@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Random Quiz 2020</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<style>
+		body,
+		p,
+		h4 {
+			text-align: center;
+		}
+
+		.qDiv {
+			border-radius: 10px;
+			font-size: 1.2rem;
+			/*			line-height: 2px;*/
+		}
+
+		.correction {
+			background-color: yellow;
+			width: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 10px;
+		}
+
+		.answerBox {
+			width: 95%;
+			background-color: lightgrey;
+			margin-bottom: 5px;
+			line-height: 50px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+
+		}
+		
+			.answerBox:hover {
+			background-color: grey;
+		}
+
+/*		small screen*/
+			@media only screen and (min-width: 768px) {
+				.answerBox {
+					width: 75%;
+				}
+			}
+/*		medium screen*/
+				@media only screen and (min-width: 1024px) {
+			.answerBox {
+				width: 50%;
+			}
+		}
+
+	
+
+		.hiddenAnswerBox {
+			display: none;
+		}
+
+		.vidReveal {
+			display: none;
+		}
+
+		#showScore {
+			font-size: 50px;
+		}
+
+		#displayScore {
+			display: block;
+			width: 120px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#showIncompleteWarning {
+			display: none;
+			background-color: pink;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+
+	</style>
+</head>
+
+
+<body>
+	<br>
+	<h3>Random Quiz</h3>
+	<h4>How Will You Fare?</h4>
+	<hr>
+
+	<div class="qDiv q1Div">
+		<p class="question" id="q1q">Q1. What is the fourth colour of the rainbow?</p>
+		<button id="q1A" class="q1 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q1AnsBox', 'q1');">A. Orange.</button>
+		<button id="q1B" class="q1 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q1AnsBox', 'q1');">B. Yellow.</button>
+		<button id="q1C" class="q1 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q1AnsBox', 'q1');">C. Green.</button>
+		<button id="q1D" class="q1 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q1AnsBox', 'q1');">D. Blue.</button>
+		<input class="hiddenAnswerBox" readonly id="q1AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q2Div">
+		<p class="question" id="q2q">Q2. In which month does the summer solstice occur?</p>
+		<button id="q2A" class="q2 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q2AnsBox', 'q2');">A. May.</button>
+		<button id="q2B" class="q2 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q2AnsBox', 'q2');">B. June.</button>
+		<button id="q2C" class="q2 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q2AnsBox', 'q2');">C. July.</button>
+		<button id="q2D" class="q2 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q2AnsBox', 'q2');">D. August.</button>
+		<input class="hiddenAnswerBox" readonly id="q2AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q3Div">
+		<p class="question" id="q3q">Q3. Which these county's flags does not contain the symbol of a moon?</p>
+		<button id="q3A" class="q3 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q3AnsBox', 'q3');">A. Tunisia.</button>
+		<button id="q3B" class="q3 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q3AnsBox', 'q3');">B. Turkey.</button>
+		<button id="q3C" class="q3 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q3AnsBox', 'q3');">C. Pakistan.</button>
+		<button id="q3D" class="q3 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q3AnsBox', 'q3');">D. India.</button>
+		<input class="hiddenAnswerBox" readonly id="q3AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q4Div">
+		<p class="question" id="q4q">Q4. Which of these seas does not exist?</p>
+		<button id="q4A" class="q4 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q4AnsBox', 'q4');">A. Blue Sea.</button>
+		<button id="q4B" class="q4 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q4AnsBox', 'q4');">B. Yellow Sea.</button>
+		<button id="q4C" class="q4 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q4AnsBox', 'q4');">C. Red Sea. </button>
+		<button id="q4D" class="q4 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q4AnsBox', 'q4');">D. Black Sea.</button>
+		<input class="hiddenAnswerBox" readonly id="q4AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q5Div">
+		<p class="question" id="q5q">Q5. Which of these places is not a state in the USA?</p>
+		<button id="q5A" class="q5 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q5AnsBox', 'q5');">A. New York.</button>
+		<button id="q5B" class="q5 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q5AnsBox', 'q5');">B. New Mexico.</button>
+		<button id="q5C" class="q5 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q5AnsBox', 'q5');">C. New Malden. </button>
+		<button id="q5D" class="q5 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q5AnsBox', 'q5');">D. New Hampshire.</button>
+		<input class="hiddenAnswerBox" readonly id="q5AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q6Div">
+		<p class="question" id="q6q">Q6. Which of these words is not a golfing term?</p>
+		<button id="q6A" class="q6 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q6AnsBox', 'q6');">A. Albertross.</button>
+		<button id="q6B" class="q6 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q6AnsBox', 'q6');">B. Eagle.</button>
+		<button id="q6C" class="q6 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q6AnsBox', 'q6');">C. Birdie. </button>
+		<button id="q6D" class="q6 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q6AnsBox', 'q6');">D. Falcon.</button>
+		<input class="hiddenAnswerBox" readonly id="q6AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q7Div">
+		<p class="question" id="q7q">Q7. From which country did Lego originate?</p>
+		<button id="q7A" class="q7 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q7AnsBox', 'q7');">A. Norway.</button>
+		<button id="q7B" class="q7 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q7AnsBox', 'q7');">B. Denmark.</button>
+		<button id="q7C" class="q7 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q7AnsBox', 'q7');">C. Finland. </button>
+		<button id="q7D" class="q7 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q7AnsBox', 'q7');">D. Iceland.</button>
+		<input class="hiddenAnswerBox" readonly id="q7AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q8Div">
+		<p class="question" id="q8q">Q8. From which country did the Steel-Pans originate?</p>
+		<button id="q8A" class="q8 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q8AnsBox', 'q8');">A. Barbados.</button>
+		<button id="q8B" class="q8 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q8AnsBox', 'q8');">B. Dominica.</button>
+		<button id="q8C" class="q8 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q8AnsBox', 'q8');">C. Trinidad & Tobago.</button>
+		<button id="q8D" class="q8 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q8AnsBox', 'q8');">D. St Lucia.</button>
+		<input class="hiddenAnswerBox" readonly id="q8AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q9Div">
+		<p class="question" id="q9q">Q9. Which of these Australian cities is the most southernmost?</p>
+		<button id="q9A" class="q9 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q9AnsBox', 'q9');">A. Adelaide.</button>
+		<button id="q9B" class="q9 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q9AnsBox', 'q9');">B. Sydney.</button>
+		<button id="q9C" class="q9 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q9AnsBox', 'q9');">C. Melbourne.</button>
+		<button id="q9D" class="q9 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q9AnsBox', 'q9');">D. Brisbaine.</button>
+		<input class="hiddenAnswerBox" readonly id="q9AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<div class="qDiv q10Div">
+		<p class="question" id="q10q">Q10. Which composer wrote the "Four Seasons"?</p>
+		<button id="q10A" class="q10 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q10AnsBox', 'q10');">A. Mozart.</button>
+		<button id="q10B" class="q10 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q10AnsBox', 'q10');">B. Beethoven.</button>
+		<button id="q10C" class="q10 answerBox btn" name="" value="false" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q10AnsBox', 'q10');">C. Haydn.</button>
+		<button id="q10D" class="q10 answerBox btn" name="lightgreen" value="true" onclick="writeValToHiddenAnswerBox(this.value, this.id, 'q10AnsBox', 'q10');">D. Vivaldi.</button>
+		<input class="hiddenAnswerBox" readonly id="q10AnsBox" class="form-control" style="background-color: aqua;">
+	</div>
+
+	<hr>
+	<p id="displayScore" class="btn btn-primary" onclick="displayScore()">Check Score</p>
+	<p id="showScore"></p>
+	<h4 id="feedbackBox"></h4>
+	<button id="showIncompleteWarning" class="btn"></button>
+	<hr>
+
+	<p>&copy; DanielSmithLDN 2020</p>
+
+	<script>
+		//-------------------------------------------Answer Select Function----------------------------------------
+
+
+		function writeValToHiddenAnswerBox(trueOrFalseVal, passedID, ansBoxID, ansClass) {
+			document.getElementById(ansBoxID).value = trueOrFalseVal;
+			//alert(passedID);
+			document.getElementById(passedID).style.backgroundColor = "blue";
+
+			if (document.getElementById(passedID).value.toLowerCase() != "true") {
+				document.getElementById(passedID).setAttribute("name", "redForLater");
+			}
+			//			else {
+			//				document.getElementById(passedID).setAttribute("name", "lightgreen")
+			//			}
+
+			turnOffAnswers(ansClass);
+		}
+
+		//---TurnOffAnswers--
+		var allQuestionsAnsweredCounter = 0;
+
+		function turnOffAnswers(qId) {
+
+			var y = document.getElementsByClassName(qId);
+			for (var i = 0; i < y.length; i++) {
+				y[i].onclick = null;
+			}
+			allQuestionsAnsweredCounter += 1;
+			//alert(allQuestionsAnsweredCounter);
+		}
+
+
+		//------------------------------------------Score Function------------------------------------
+
+		function displayScore() {
+
+
+
+			if (allQuestionsAnsweredCounter < 10) {
+				document.getElementById("showIncompleteWarning").innerHTML = "You must answer all of the questions to receive a score!";
+				document.getElementById("showIncompleteWarning").style.display = "block";
+			} else {
+				document.getElementById("showIncompleteWarning").style.display = "none";
+
+				var NameAttributes = document.getElementsByName("redForLater");
+				for (var j = 0; j < NameAttributes.length; j++) {
+					NameAttributes[j].style.backgroundColor = "pink";
+				}
+
+				var NameAttributes = document.getElementsByName("lightgreen");
+				for (var c = 0; c < NameAttributes.length; c++) {
+					NameAttributes[c].style.backgroundColor = "lightgreen";
+				}
+
+				var score = 0;
+
+				//---Get Score Loop--
+
+				for (var id = 1; id <= 10; id++) {
+					var AnsBox = "q" + id + "AnsBox";
+
+					if (document.getElementById(AnsBox).value.toLowerCase() == "true") {
+						score += 5;
+						//alert(q1Score);
+
+					} else if (document.getElementById(AnsBox).value.toLowerCase() != "true") {
+						score += 0;
+					}
+					//alert("q1Score " + q1Score);
+				}
+
+				document.getElementById("showScore").innerHTML = score + "/50";
+
+				var fbb = document.getElementById("feedbackBox");
+
+
+				if (score < 5) {
+					fbb.innerHTML = "At lest you tried.";
+				} else if (score < 15) {
+					fbb.innerHTML = "Nice Try!";
+				} else if (score < 25) {
+					fbb.innerHTML = "Not Bad!";
+				} else if (score < 30) {
+					fbb.innerHTML = "Fair Play!";
+				} else if (score < 40) {
+					fbb.innerHTML = "Pretty Good!";
+				} else if (score < 50) {
+					fbb.innerHTML = "Nice one!";
+				} else if (score = 50) {
+					fbb.innerHTML = "Superb!";
+				}
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>
